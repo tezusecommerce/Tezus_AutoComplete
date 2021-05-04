@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceContainer name="content">
+      <block class="Tezus\AutoComplete\Block\Url"   template="Tezus_AutoComplete::url.phtml"   name="tezus_autocomplete_url"   after="order_content" />
+      <block class="Tezus\AutoComplete\Block\Create" template="Tezus_AutoComplete::create.phtml" name="tezus_autocomplete_create" />
+    </referenceContainer>
+  </body>
+</page>
