@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tezus_AutoComplete::autocomplete"
+             title="Auto Complete"
+             module="Tezus_AutoComplete"
+             sortOrder="0"
+             parent="Tezus_Base::menu"
+             resource="Tezus_AutoComplete::autocomplete"
+        />
+        <add id="Tezus_AutoComplete::configuracoes"
+            title="Configurações"
+            module="Tezus_AutoComplete"
+            translate="title"
+            sortOrder="1"
+            action="admin/system_config/edit/section/tezus_autocomplete"
+            parent="Tezus_AutoComplete::autocomplete"
+            resource="Tezus_AutoComplete::configuracoes"/>
+    </menu>
+</config> 
