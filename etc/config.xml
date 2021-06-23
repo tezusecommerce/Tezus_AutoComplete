@@ -7,6 +7,7 @@
           <![CDATA[3000]]>
         </load_page_time>
       </settings>
+
       <custom_fields_customer>
         <custom_state>
           <![CDATA[region_id]]>
@@ -17,13 +18,14 @@
         <custom_street>
           <![CDATA[street_1]]>
         </custom_street>
+		<custom_additional_info>
+			<![CDATA[street_3]]>
+		</custom_additional_info>
         <custom_quarter>
-          <![CDATA[street_3]]>
-        </custom_quarter>
-        <custom_additional_info>
           <![CDATA[street_4]]>
-        </custom_additional_info>
+        </custom_quarter>
       </custom_fields_customer>
+
       <custom_fields_checkout>
         <checkout_custom_state>
           <![CDATA[region_id]]>
@@ -41,6 +43,7 @@
           <![CDATA[street\\[3\\]]]>
         </checkout_custom_additional_info>
       </custom_fields_checkout>
+
       <custom_fields_customer_create>
         <create_custom_state>
           <![CDATA[region_id]]>
@@ -51,13 +54,14 @@
         <create_custom_street>
           <![CDATA[street_1]]>
         </create_custom_street>
-        <create_custom_quarter>
-          <![CDATA[street_3]]>
-        </create_custom_quarter>
         <create_custom_additional_info>
-          <![CDATA[street_4]]>
+          <![CDATA[street_3]]>
         </create_custom_additional_info>
+		<create_custom_quarter>
+			<![CDATA[street_4]]>
+		</create_custom_quarter>
       </custom_fields_customer_create>
+
     </tezus_autocomplete>
   </default>
 </config>
