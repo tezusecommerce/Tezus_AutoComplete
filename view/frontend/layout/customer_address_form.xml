@@ -8,11 +8,16 @@
 				name="tezus_autocomplete_url" 
 				after="order_content" 
 			/>
-			<block 
+		</referenceContainer>
+		<referenceBlock
 				class="Tezus\AutoComplete\Block\Customer" 
 				template="Tezus_AutoComplete::customer.phtml" 
-				name="tezus_autocomplete_customer" 
-			/>
-		</referenceContainer>
+				name="customer_address_edit">
+				<arguments>
+					<argument name="attribute_data" xsi:type="object">Magento\Customer\Block\DataProviders\AddressAttributeData</argument>
+					<argument name="post_code_config" xsi:type="object">Magento\Customer\Block\DataProviders\PostCodesPatternsAttributeData</argument>
+					<argument name="view_model" xsi:type="object">Magento\Customer\ViewModel\Address</argument>
+				</arguments>
+			</referenceBlock>
 	</body>
 </page>

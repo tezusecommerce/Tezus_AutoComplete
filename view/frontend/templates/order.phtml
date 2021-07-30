@@ -1,62 +1,62 @@
 <script>
-  require([
-    'jquery',
-    'jquery/validate'
-  ], function(jQuery) {
+	require([
+		'jquery',
+		'jquery/validate'
+	], function(jQuery) {
 
-    function tezusAutocompleteFillData(json) {
-      // Country
-      var country = jQuery("[name=country_id]");
-      country.val('BR').trigger('keyup');
+		function tezusAutocompleteFillData(json) {
+			// Country
+			var country = jQuery("[name=country_id]");
+			country.val('BR').trigger('keyup');
 
-      //City
-      var customCity = "<?php echo $this->getCustomCity(); ?>";
-      var city = jQuery("[name=".concat(customCity, "]"));
-      city.val(json.city).trigger('keyup');
+			//City
+			var customCity = "<?php echo $this->getCustomCity(); ?>";
+			var city = jQuery("[name=".concat(customCity, "]"));
+			city.val(json.city).trigger('keyup');
 
-      // State
-      var customState = "<?php echo $this->getCustomState(); ?>";
-      var state = jQuery("[name=".concat(customState, "]"));
-      state.val(tezusAutocompleteUF[json.state]).trigger('change');
+			// State
+			var customState = "<?php echo $this->getCustomState(); ?>";
+			var state = jQuery("[name=".concat(customState, "]"));
+			state.val(tezusAutocompleteUF[json.state]).trigger('change');
 
-      // Street
-      var customStreet = "<?php echo $this->getCustomStreet(); ?>";
-      var street = jQuery("[name=".concat(customStreet, "]"));
-      street.val(json.street).trigger('keyup');
+			// Street
+			var customStreet = "<?php echo $this->getCustomStreet(); ?>";
+			var street = jQuery("[name=".concat(customStreet, "]"));
+			street.val(json.street).trigger('keyup');
 
-      //Quarter
-      var customQuarter = "<?php echo $this->getCustomQuarter(); ?>";
-      var quarter = jQuery("[name=".concat(customQuarter, "]"));
-      quarter.val(json.neighborhood).trigger('keyup');
-    }
+			//Quarter
+			var customQuarter = "<?php echo $this->getCustomQuarter(); ?>";
+			var quarter = jQuery("[name=".concat(customQuarter, "]"));
+			quarter.val(json.neighborhood).trigger('keyup');
+		}
 
-    // DYNAMIC
-    jQuery(document).ready(function() {
-      var interval;
+		// DYNAMIC
+		jQuery(document).ready(function() {
+			var interval;
 
-      function tezusAutocompleteDoEvents() {
-        var checkPotscode = jQuery("[name=postcode]");
-        jQuery("[name=postcode]").blur(function() {
-          var value = jQuery(this).val();
-          jQuery.ajax({
-            data: {
-              form_key: window.FORM_KEY
-            },
-            url: TEZUS_AUTOCOMPLETE_URL + value,
-            showLoader: true,
-            success: function(data) {
-              if (!data.city) return;
-              tezusAutocompleteFillData(data);
-            },
-          });
-        });
-        if (checkPotscode.length) {
-          clearInterval(interval);
-        }
-      }
-      var time = "<?php echo $this->getLoadPageTime(); ?>";
-      interval = setInterval(tezusAutocompleteDoEvents, time);
-    });
+			function tezusAutocompleteDoEvents() {
+				var checkPotscode = jQuery("[name=postcode]");
+				jQuery("[name=postcode]").blur(function() {
+					var value = jQuery(this).val();
+					jQuery.ajax({
+						data: {
+							form_key: window.FORM_KEY
+						},
+						url: TEZUS_AUTOCOMPLETE_URL + value,
+						showLoader: true,
+						success: function(data) {
+							if (!data.city) return;
+							tezusAutocompleteFillData(data);
+						},
+					});
+				});
+				if (checkPotscode.length) {
+					clearInterval(interval);
+				}
+			}
+			var time = "<?php echo $this->getLoadPageTime(); ?>";
+			interval = setInterval(tezusAutocompleteDoEvents, time);
+		});
 
-  });
+	});
 </script>

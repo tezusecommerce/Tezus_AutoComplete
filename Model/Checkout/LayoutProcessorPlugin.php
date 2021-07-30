@@ -55,10 +55,10 @@ class LayoutProcessorPlugin
 				continue;
 			}
 
-			$billingAddress['street']['children'][0]['label'] = __('Endereço');
-			$billingAddress['street']['children'][1]['label'] = __('Número');
-			$billingAddress['street']['children'][2]['label'] = __('Complemento');
-			$billingAddress['street']['children'][3]['label'] = __('Bairro');
+			$billingAddress['street']['children']['0']['label'] = __('Endereço');
+			$billingAddress['street']['children']['1']['label'] = __('Número');
+			$billingAddress['street']['children']['2']['label'] = __('Complemento');
+			$billingAddress['street']['children']['3']['label'] = __('Bairro');
 			$billingAddress['postcode']['sortOrder'] = 1;
 
 			$billingAddress['street']['children']['0']['validation'] = ['required-entry' => true, "min_text_len‌​gth" => 1, "max_text_length" => 255];
