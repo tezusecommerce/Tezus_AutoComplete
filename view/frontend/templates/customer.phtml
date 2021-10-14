@@ -51,55 +51,61 @@ $_fax = $block->getLayout()->createBlock(Fax::class);
 			</div>
 		</div>
 
-		<div class="field street required">
-			<label for="street_1" class="label">Endereço</label>
+		<div class="field required street">
+			<label for="street_1" class="label">
+				<span><?= $escaper->escapeHtmlAttr(__('Endereço')) ?> </span>
+			</label>
 
 			<div class="control">
-				<input type="text" name="street[]" 
-						value="<?= $escaper->escapeHtmlAttr($block->getStreetLine(1)) ?>" 
-						title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('street') ?>" 
-						id="street_1" 
-						class="input-text <?= $escaper->escapeHtmlAttr($_streetValidationClass) ?>" 
+				<input type="text"
+						name="street_1"
+						value="<?= $escaper->escapeHtmlAttr($block->getStreetLine(1)) ?>"
+						title="<?= $escaper->escapeHtmlAttr(__('Endereço')) ?>"
+						id="street_1"
+						class="input-text required-entry"
 				/>
-				<div class="nested">
-					<?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
-					<?php for ($_i = 1, $_n = $this->helper(Address::class)->getStreetLines(); $_i < $_n; $_i++) : ?>
-						<div class="field additional">
-							<?php
-							switch ($_i) {
-								case 0: ?>
-									<div class="control">
-										<label for="">Rua</label>
-										<input type="text" name="street[]" value="<?= $escaper->escapeHtmlAttr($block->getStreetLine($_i + 1)) ?>" title="<?= $escaper->escapeHtmlAttr(__('Street Address %1', $_i + 1)) ?>" id="street_<?= /* @noEscape */ $_i + 1 ?>" class="input-text <?= $escaper->escapeHtmlAttr($_streetValidationClass) ?>">
-									</div>
-									<?php break; ?>
-								<?php
-								case 1: ?>
-									<div class="control">
-										<label for="">Numero</label>
-										<input type="text" name="street[]" value="<?= $escaper->escapeHtmlAttr($block->getStreetLine($_i + 1)) ?>" title="<?= $escaper->escapeHtmlAttr(__('Street Address %1', $_i + 1)) ?>" id="street_<?= /* @noEscape */ $_i + 1 ?>" class="input-text <?= $escaper->escapeHtmlAttr($_streetValidationClass) ?>">
-									</div>
-									<?php break; ?>
-								<?php
-								case 2: ?>
-									<div class="control">
-										<label for="">Complemento</label>
-										<input type="text" name="street[]" value="<?= $escaper->escapeHtmlAttr($block->getStreetLine($_i + 1)) ?>" title="<?= $escaper->escapeHtmlAttr(__('Street Address %1', $_i + 1)) ?>" id="street_<?= /* @noEscape */ $_i + 1 ?>" class="input-text <?= $escaper->escapeHtmlAttr($_streetValidationClass) ?>">
-									</div>
-									<?php break; ?>
-								<?php
-								case 3: ?>
-									<div class="control">
-										<label for="">Bairro</label>
-										<input type="text" name="street[]" value="<?= $escaper->escapeHtmlAttr($block->getStreetLine($_i + 1)) ?>" title="<?= $escaper->escapeHtmlAttr(__('Street Address %1', $_i + 1)) ?>" id="street_<?= /* @noEscape */ $_i + 1 ?>" class="input-text <?= $escaper->escapeHtmlAttr($_streetValidationClass) ?>">
-									</div>
-									<?php break; ?>
-							<?php } ?>
+			</div>
+		</div>
 
+		<div class="field additional required">
+			<label for="street_2" class="label">
+				<span><?= $escaper->escapeHtmlAttr(__('Número')) ?> </span>
+			</label>
+			<div class="control">
+				<input type="text"
+						name="street_2"
+						value="<?= $escaper->escapeHtmlAttr($block->getStreetLine(2)) ?>"
+						title="<?= $escaper->escapeHtmlAttr(__('Número')) ?>"
+						id="street_2"
+						class="input-text required-entry">
+			</div>
+		</div>
 
-						</div>
-					<?php endfor; ?>
-				</div>
+		<div class="field additional">
+			<label for="street_3" class="label">
+				<span><?= $escaper->escapeHtmlAttr(__('Complemento')) ?> </span>
+			</label>
+			<div class="control">
+				<input type="text"
+						name="street_3"
+						value="<?= $escaper->escapeHtmlAttr($block->getStreetLine(3)) ?>"
+						title="<?= $escaper->escapeHtmlAttr(__('Complemento')) ?>"
+						id="street_3"
+						class="input-text">
+			</div>
+		</div>
+
+		<div class="field additional required">
+			<label for="street_4" class="label">
+				<span><?= $escaper->escapeHtmlAttr(__('Bairro')) ?> </span>
+			</label>
+			<div class="control">
+				<input type="text"
+						name="street_4"
+						value="<?= $escaper->escapeHtmlAttr($block->getStreetLine(4)) ?>"
+						title="<?= $escaper->escapeHtmlAttr(__('Bairro')) ?>"
+						id="street_4"
+						class="input-text required-entry">
 			</div>
 		</div>
 
